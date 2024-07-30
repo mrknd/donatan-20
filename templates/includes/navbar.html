@@ -1,0 +1,40 @@
+{% load static %}
+
+        <header class="header">
+            <a href="{% url 'pages:index' %}"
+                ><img src="{% static 'img/icons/logo/donatan-black-logo.svg' %}" alt="Donatan logo" class="logo"
+            /></a>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li>
+                        <a class="main-nav-link" href="{% url 'pages:index' %}">Головна</a>
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'catalog:catalog' %}">Каталог</a>
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'pages:about' %}"
+                            >Про Нас</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'pages:contacts' %}"
+                            >Контакти</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link nav-cta" href="">Instagram</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="btn-mobile-nav">
+                <ion-icon
+                    class="icon-mobile-nav"
+                    name="menu-outline"
+                ></ion-icon>
+                <ion-icon
+                    class="icon-mobile-nav close-mob"
+                    name="close-outline"
+                ></ion-icon>
+            </button>
+        </header>

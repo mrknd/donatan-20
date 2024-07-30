@@ -1,0 +1,11 @@
+asgiref==3.3.4
+Django==3.2
+django-ckeditor==6.2.0
+django-js-asset==2.2.0
+gunicorn==20.1.0
+packaging==21.0
+pillow==8.2.0
+psycopg2-binary==2.8.6
+sqlparse==0.4.1
+typing_extensions==3.10.0.2
+tzdata==2021.5

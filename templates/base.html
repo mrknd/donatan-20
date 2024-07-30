@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- --------- Main CSS --------- -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <!-- --------- Preconnect to Google Fonts --------- -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+
+
+    <style></style>
+</head>
+
+<body {% if '/' == request.path %} class="home-page"{% endif %}>
+{% include 'includes/navbar.html' %}
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+    {% include 'includes/mobile_icon_black.html' %}
+
+</main>
+
+{% include 'includes/footer.html' %}
+    <!-- --------- Icons --------- -->
+    <script
+            src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+            defer
+    ></script>
+
+    <!-- --------- JQuery --------- -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- --------- TweenMax --------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+
+
+    <!-- --------- Main Script --------- -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+<script>
+
+    {% block script %}
+
+    {% endblock %}
+
+    // ------------------------ Donatan Scripts  ------------------------
+    
+    // --------------- Change Color Header --------------------------- >
+
+document.addEventListener("DOMContentLoaded", function() {
+            const header = document.querySelector(".header");
+            const heroSection = document.querySelector(".hero-section");
+            const logo = document.querySelector(".logo");
+            const burgerIcon = document.querySelector(".icon-mobile-nav");
+
+            window.addEventListener("scroll", function() {
+                const heroHeight = heroSection.offsetHeight;
+
+                if (window.scrollY > heroHeight) {
+                    header.classList.add("scrolled");
+                    logo.src = "{% static 'img/icons/logo/donatan-black-logo.svg' %}"; // Шлях до чорного логотипу
+                    burgerIcon.style.color = "#000"; // Чорний колір іконки бургера
+                } else {
+                    header.classList.remove("scrolled");
+                    logo.src = "{% static 'img/icons/logo/donatan-white-logo.svg' %}"; // Шлях до білого логотипу
+                    burgerIcon.style.color = "#fff"; // Білий колір іконки бургера
+                }
+            });
+        });
+
+// --------------- End Change Color Header --------------------------- >
+    (function () {
+        "use strict";
+        var jQueryPlugin = (window.jQueryPlugin = function (
+            ident,
+            func
+        ) {
+            return function (arg) {
+                if (this.length > 1) {
+                    this.each(function () {
+                        var $this = $(this);
+
+                        if (!$this.data(ident)) {
+                            $this.data(ident, func($this, arg));
+                        }
+                    });
+
+                    return this;
+                } else if (this.length === 1) {
+                    if (!this.data(ident)) {
+                        this.data(ident, func(this, arg));
+                    }
+
+                    return this.data(ident);
+                }
+            };
+        });
+    })();
+
+    (function () {
+        "use strict";
+
+        function Accordion($roots) {
+            var element = $roots;
+            var accordion = $roots.first("[data-accordion]");
+            var accordion_target = $roots.find("[data-accordion-item]");
+            var accordion_content = $roots.find(
+                "[data-accordion-content]"
+            );
+            $(accordion_target).click(function () {
+                $(this).toggleClass("opened");
+                $(this).find(accordion_content).slideToggle("slow");
+                $(this)
+                    .siblings()
+                    .find(accordion_content)
+                    .slideUp("slow");
+                $(this).siblings().removeClass("opened");
+            });
+        }
+
+        $.fn.Accordion = jQueryPlugin("Accordion", Accordion);
+        $("[data-accordion]").Accordion();
+
+        function Ripple_Button($root) {
+            var elements = $root;
+            var ripple_btn = $root.first("[data-ripple]");
+            $(ripple_btn).on("click", function (event) {
+                event.preventDefault();
+                var $div = $("<div/>"),
+                    btnOffset = ripple_btn.offset(),
+                    xPos = event.pageX - btnOffset.left,
+                    yPos = event.pageY - btnOffset.top;
+                $div.addClass("ripple-effect");
+                $div.css({
+                    height: ripple_btn.height(),
+                    width: ripple_btn.height(),
+                    top: yPos - $div.height() / 2,
+                    left: xPos - $div.width() / 2,
+                    background:
+                        ripple_btn.data("ripple") || "#ffffff26",
+                });
+                ripple_btn.append($div);
+
+                window.setTimeout(function () {
+                    $div.remove();
+                }, 2000);
+            });
+        }
+
+        $.fn.Ripple_Button = jQueryPlugin(
+            "Ripple_Button",
+            Ripple_Button
+        );
+        $("[data-ripple]").Ripple_Button();
+    })();
+
+    // ------------------------ End Donatan Scripts  ------------------------
+</script>
+</body>
+</html>

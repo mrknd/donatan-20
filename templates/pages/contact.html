@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="container breadcrumb">
+                <p>
+                    <a href="{% url 'pages:index' %}">Головна</a> /
+                    <a href="" style="color: #9DB2BF;">Контакти</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-section" style="margin-top: 1rem">
+            <div class="contact-card">
+                <img src="{% static 'img/icons/noun-storage-7046595.svg' %}" alt="Гурт"/>
+                <div>
+                    <h3>Менеджер</h3>
+                    <div class="contact-flex">
+                        <div class="contact-flex-column">
+                            <p>Номер телефону:</p>
+                            <p>
+                                    <span
+                                    ><a href="tel:+38 067 332 30 22"
+                                    >+38 (067) 332 30 22</a
+                                    ></span
+                                    >
+                            </p>
+                        </div>
+                        <div class="contact-flex-column">
+                            <p>Пошта:</p>
+                            <p>
+                                    <span
+                                    ><a href="mailto: donatan80@gmail.com"
+                                    >donatan80@gmail.com</a
+                                    ></span
+                                    >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-card">
+                <img src="{% static 'img/icons/noun-box-7033881.svg' %}" alt="Роздріб"/>
+                <div>
+                    <h3>Менеджер</h3>
+                    <div class="contact-flex">
+                        <div class="contact-flex-column">
+                            <p>Номер телефону:</p>
+                            <p>
+                                    <span
+                                    ><a href="tel:+38 067 193 10 99"
+                                    >+38 (067) 193 10 99</a
+                                    ></span
+                                    >
+                            </p>
+                        </div>
+                        <div class="contact-flex-column">
+                            <p>Пошта:</p>
+                            <p>
+                                    <span
+                                    ><a href="mailto: donatan80@gmail.com"
+                                    >donatan80@gmail.com</a
+                                    ></span
+                                    >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <h2>Зв'яжіться з нами</h2>
+                <form class="contact-form" action="{% url 'pages:contacts' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Ваше ім'я *</label>
+                        <input type="text" id="name" name="name" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Номер телефону *</label>
+                        <input
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail адреса (необов'язково)</label>
+                        <input type="email" id="email" name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ваше повідомлення (необов'язково)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        ВІДПРАВИТИ
+                    </button>
+                    <p class="privacy-note">
+                        Натискаючи на кнопку, ви погоджуєтеся з
+                        <a href="#">Політикою конфіденційності</a>
+                    </p>
+                </form>
+            </div>
+            <div class="map-container">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4334.73440572991!2d24.003641273426695!3d49.75881993205307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae61e1c9e5755%3A0x8d8a98bb7c60e77f!2sStusa%20St%2C%2013%D0%B5%2C%20Solonka%2C%20L&#39;vivs&#39;ka%20oblast%2C%20Ukraine%2C%2081131!5e0!3m2!1sen!2ssk!4v1721740408652!5m2!1sen!2ssk"
+                        width="600"
+                        height="450"
+                        width="100%"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                ></iframe>
+            </div>
+        </section>
+    </main>
+{% endblock %}

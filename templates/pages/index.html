@@ -1,0 +1,727 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+    <!-- --------- Hero Section --------- -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Виробництво та продаж дитячих колясок
+                </h1>
+                <a class="hero-button" href="{% url 'catalog:catalog' %}"
+                >Вибрати Коляску</a
+                >
+                <div class="hero-social">
+                    <div class="hero-line"></div>
+                    <a
+                            href="https://www.instagram.com"
+                            class="hero-social-icon"
+                            target="_blank"
+                    >
+                        <img
+                                src="{% static 'img/icons/instagram-svgrepo-com (1).svg' %}"
+                                alt="Instagram"
+                        />
+                    </a>
+                    <a
+                            href="https://www.facebook.com"
+                            class="hero-social-icon"
+                            target="_blank"
+                    >
+                        <img
+                                src="{% static 'img/icons/facebook-svgrepo-com (3).svg' %}"
+                                alt="Facebook"
+                        />
+                    </a>
+                    <a
+                            href="https://www.youtube.com"
+                            class="hero-social-icon"
+                            target="_blank"
+                    >
+                        <img
+                                src="{% static 'img/icons/youtube-svgrepo-com (4).svg' %}"
+                                alt="YouTube"
+                        />
+                    </a>
+                    <div class="hero-line"></div>
+                </div>
+            </div>
+
+            <img
+                    class="hero-image"
+                    src="{% static 'img/donatan-hero-img.jpg' %}"
+                    alt="Виготовлення та продаж дитячих колясок"
+            />
+        </div>
+    </section>
+
+    <!-- --------- End Hero Section --------- -->
+    
+
+    <!-- --------- About us Section --------- -->
+
+    <section class="about-us-section">
+        <div class="container about-us mt-5">
+            <div class="grid grid--2-cols">
+                <div class="text-about-us">
+                    <h2 class="heading-primary">Donatan - We Care</h2>
+                    <p
+                            class="about-us-description"
+                            style="padding-right: 4rem"
+                    >
+                        Компанія Donatan – український бренд, котрий
+                        спеціалізується на виготовленні колясок, а також
+                        інших товарів з цієї категорії, таких, як дитячі
+                        крісла та гойдалки. Наша компанія з’явилася на
+                        ринку ще у 2008 році. За час свого існування ми
+                        зуміли завоювати повагу та довіру споживачів,
+                        котрі оцінили високі експлуатаційні
+                        характеристики нашої продукції.
+                    </p>
+                    <div>
+                        <a href="{% url 'pages:about' %}" class="arrow-button"
+                        >Дізнатись більше</a
+                        >
+                    </div>
+                </div>
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-index-1.jpg' %}"
+                            alt="Про нас"
+                            class="border-img"
+                    />
+                </div>
+            </div>
+
+            <div class="grid grid--2-cols-reverse">
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-index.jpg' %}"
+                            alt="Про нас"
+                            class="border-img"
+                    />
+                </div>
+                <div class="text-about-us">
+                    <h2 class="heading-primary-right">
+                        Високоякісні та сертифіковані матеріали
+                    </h2>
+                    <p
+                            class="about-us-description"
+                            style="text-align: end"
+                    >
+                        Надійність та безпека наших колясок забезпечується використанням високоякісних та сертифікованих
+                        матеріалів. Кожен компонент проходить суворі випробування, щоб відповідати міжнародним
+                        стандартам якості та безпеки. Ми використовуємо тільки ті матеріали, які довели свою надійність
+                        і довговічність у найрізноманітніших умовах.
+                    </p>
+                    <div style="text-align: end">
+                        <a href="{% url 'pages:about' %}" class="arrow-button-left"
+                        >Дізнатись більше</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------- End About us Section --------- -->
+
+    <!-- --------- Parallax Section --------- -->
+
+    <section class="parallax-section">
+        <div class="parallax">
+            <div class="parallax-content">
+                <h2 class="heading-parallax">
+                    Donatan - впевненість у безпеці та надійність
+                </h2>
+                <a href="{% url 'catalog:catalog' %}" class="parallax-button">Вибрати Коляску</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------- End Parallax Section --------- -->
+
+    <!-- --------- Catalog Section --------- -->
+
+    <section class="catalog-section">
+        <div class="container">
+            <h2 class="heading-without-line">Найпопулярніші моделі</h2>
+            <div class="model-container">
+                <p class="model-description">Кожна з наших моделей була розроблена, щоб ідеально відповідати абсолютно
+                    різним потребам батьків і
+                    дітей. Виберіть свою ідеальну дитячу коляску.</p>
+            </div>
+        </div>
+        <div class="grid-container__gallery container">
+
+            {% for stroller in featured_strollers %}
+                <a href="{{ stroller.get_absolute_url }}">
+                    <div class="grid-item__gallery">
+                        <img src="{{ stroller.featured_photo.url }}" alt="Anex IQ">
+                        <div class="content__gallery">
+                            <h3>{{ stroller.model_name }}</h3>
+                            <p>{{ stroller.featured_description }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {#        <div class="container grid-catalog grid--3-cols">#}
+        {#            <div>#}
+        {#                <a href="detail.html">#}
+        {#                    <article class="card">#}
+        {#                        <img#}
+        {#                                class="card__background"#}
+        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
+        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
+        {#                                width="1920"#}
+        {#                                height="2193"#}
+        {#                        />#}
+        {#                        <div class="card__header">#}
+        {#                            <h2 class="card__title">Comfort</h2>#}
+        {#                        </div>#}
+        {#                        <div class="card__content | flow">#}
+        {#                            <div#}
+        {#                                    class="card__content--container | flow"#}
+        {#                            >#}
+        {#                                <p class="card__description">#}
+        {#                                    Donatan Comfort –#}
+        {#                                    багатофункціональна дитяча коляска.#}
+        {#                                    Ми розуміємо скільки клопотів#}
+        {#                                    (звісно приємних) з’являється в#}
+        {#                                    життя батьків з появою малечі. З#}
+        {#                                    Donatan Comfort комфортним буде усе.#}
+        {#                                </p>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </article>#}
+        {#                </a>#}
+        {#            </div>#}
+        {##}
+        {#            <div>#}
+        {#                <a href="detail.html">#}
+        {#                    <article class="card">#}
+        {#                        <img#}
+        {#                                class="card__background"#}
+        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
+        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
+        {#                                width="1920"#}
+        {#                                height="2193"#}
+        {#                        />#}
+        {#                        <div class="card__header">#}
+        {#                            <h2 class="card__title">Sonata</h2>#}
+        {#                        </div>#}
+        {#                        <div class="card__content | flow">#}
+        {#                            <div#}
+        {#                                    class="card__content--container | flow"#}
+        {#                            >#}
+        {#                                <p class="card__description">#}
+        {#                                    Donatan Comfort –#}
+        {#                                    багатофункціональна дитяча коляска.#}
+        {#                                    Ми розуміємо скільки клопотів#}
+        {#                                    (звісно приємних) з’являється в#}
+        {#                                    життя батьків з появою малечі. З#}
+        {#                                    Donatan Comfort комфортним буде усе.#}
+        {#                                </p>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </article>#}
+        {#                </a>#}
+        {#            </div>#}
+        {##}
+        {#            <div>#}
+        {#                <a href="detail.html">#}
+        {#                    <article class="card">#}
+        {#                        <img#}
+        {#                                class="card__background"#}
+        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
+        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
+        {#                                width="1920"#}
+        {#                                height="2193"#}
+        {#                        />#}
+        {#                        <div class="card__header">#}
+        {#                            <h2 class="card__title">Sonata</h2>#}
+        {#                        </div>#}
+        {#                        <div class="card__content | flow">#}
+        {#                            <div#}
+        {#                                    class="card__content--container | flow"#}
+        {#                            >#}
+        {#                                <p class="card__description">#}
+        {#                                    Donatan Comfort –#}
+        {#                                    багатофункціональна дитяча коляска.#}
+        {#                                    Ми розуміємо скільки клопотів#}
+        {#                                    (звісно приємних) з’являється в#}
+        {#                                    життя батьків з появою малечі. З#}
+        {#                                    Donatan Comfort комфортним буде усе.#}
+        {#                                </p>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </article>#}
+        {#                </a>#}
+        {#            </div>#}
+        {#        </div>#}
+        <div
+                style="
+                        display: flex;
+                        justify-content: center;
+                        margin: 3rem auto;
+                    "
+        >
+            <a class="gallery-button" href="{% url 'catalog:catalog' %}">Більше колясок</a>
+        </div>
+    </section>
+
+    <!-- --------- End Catalog Section --------- -->
+
+    <!-- --------- FAQs Section --------- -->
+    <section class="faq-section" style="padding: 3rem 0" id="how">
+        <div class="container">
+            <h2 class="heading-primary">Поширені питання</h2>
+            <div class="grid grid--center-v">
+                <div
+                        class="aks-accordion"
+                        itemscope
+                        itemtype="https://schema.org/FAQPage"
+                        data-accordion=""
+                >
+                    <div class="aks-accordion-row">
+                        <div
+                                class="aks-accordion-item"
+                                itemscope
+                                itemprop="mainEntity"
+                                itemtype="https://schema.org/Question"
+                                data-accordion-item=""
+                                data-ripple="#00000026"
+                        >
+                            <div class="aks-accordion-item-row">
+                                <div class="aks-accordion-item-icon">
+                                    <svg
+                                            class="aks-accordion-item-icon-open"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216 v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                    <svg
+                                            class="aks-accordion-item-icon-close"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="aks-accordion-item-title">
+                                    <h4 itemprop="name">
+                                        Де виготовляється коляска?
+                                    </h4>
+                                </div>
+                            </div>
+                            <div
+                                    class="aks-accordion-item-content"
+                                    itemscope
+                                    itemprop="acceptedAnswer"
+                                    itemtype="https://schema.org/Answer"
+                                    data-accordion-content=""
+                            >
+                                <p itemprop="text">
+                                    <strong>DONaTan</strong> — це гордість українського виробництва. Ми спеціалізуємося
+                                    на виготовленні
+                                    дитячих колясок з 2008 року, і за цей час зарекомендували себе як надійний та
+                                    якісний виробник. Всі наші коляски створюються в Україні, де ми ретельно контролюємо
+                                    кожен етап виробничого процесу.
+                                </p>
+                                <br/>
+                                <p>
+                                    <strong>Висока якість та інновації:</strong> <br>
+                                    Ми пишаємося тим, що наша продукція відповідає найвищим стандартам якості та
+                                    безпеки. Використовуючи сучасні технології та інноваційні матеріали, ми створюємо
+                                    коляски, які забезпечують комфорт та безпеку як дітям, так і батькам. Наші
+                                    спеціалісти постійно працюють над вдосконаленням конструкцій та дизайну, щоб
+                                    задовольнити потреби наших клієнтів.
+                                </p>
+                                <br/>
+                                <p>
+                                    <strong>Підтримка вітчизняного виробника:</strong> <br>
+                                    Вибираючи коляски DONaTan, ви підтримуєте українського виробника та економіку
+                                    країни. Ми віримо, що наша продукція здатна конкурувати на міжнародному ринку, і
+                                    докладаємо всіх зусиль, щоб забезпечити вас найкращим продуктом. Кожна коляска
+                                    DONaTan — це результат праці та відданості команди професіоналів, яка прагне зробити
+                                    життя батьків і дітей комфортнішим та безпечнішим.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aks-accordion-row">
+                        <div
+                                class="aks-accordion-item"
+                                itemscope
+                                itemprop="mainEntity"
+                                itemtype="https://schema.org/Question"
+                                data-accordion-item=""
+                                data-ripple="#00000026"
+                        >
+                            <div class="aks-accordion-item-row">
+                                <div class="aks-accordion-item-icon">
+                                    <svg
+                                            class="aks-accordion-item-icon-open"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216 v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                    <svg
+                                            class="aks-accordion-item-icon-close"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="aks-accordion-item-title">
+                                    <h4 itemprop="name">
+                                        З яких матерілів виготовлення
+                                        коляска?
+                                    </h4>
+                                </div>
+                            </div>
+                            <div
+                                    class="aks-accordion-item-content"
+                                    itemscope
+                                    itemprop="acceptedAnswer"
+                                    itemtype="https://schema.org/Answer"
+                                    data-accordion-content=""
+                            >
+                                <p itemprop="text">
+                                    <strong>Високоякісні матеріали та конструкції:</strong> <br>
+                                    Кожна деталь наших колясок продумана до найменших дрібниць, щоб забезпечити
+                                    максимальний рівень безпеки. Це включає амортизаційні системи, які знижують вібрацію
+                                    під час руху, захисні бампери та капюшони, що захищають від сонця та вітру, а також
+                                    гальмівні системи, які легко та надійно фіксують коляску на місці. Крім того, ми
+                                    регулярно проводимо тестування наших продуктів в реальних умовах, щоб переконатися,
+                                    що вони витримують всі випробування та забезпечують комфорт і безпеку вашій дитині в
+                                    будь-якій ситуації.
+
+                                </p>
+                                <br/>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aks-accordion-row">
+                        <div
+                                class="aks-accordion-item"
+                                itemscope
+                                itemprop="mainEntity"
+                                itemtype="https://schema.org/Question"
+                                data-accordion-item=""
+                                data-ripple="#00000026"
+                        >
+                            <div class="aks-accordion-item-row">
+                                <div class="aks-accordion-item-icon">
+                                    <svg
+                                            class="aks-accordion-item-icon-open"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216 v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                    <svg
+                                            class="aks-accordion-item-icon-close"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="aks-accordion-item-title">
+                                    <h4 itemprop="name">
+                                        Гарантія та сервіс
+                                    </h4>
+                                </div>
+                            </div>
+                            <div
+                                    class="aks-accordion-item-content"
+                                    itemscope
+                                    itemprop="acceptedAnswer"
+                                    itemtype="https://schema.org/Answer"
+                                    data-accordion-content=""
+                            >
+                                <p itemprop="text">
+                                    <strong>Гарантія на продукцію:</strong> <br>
+                                    На всі наші дитячі коляски надається гарантія строком на <strong>1</strong> рік. Це
+                                    означає, що
+                                    протягом цього періоду ми забезпечуємо <strong>безкоштовний</strong> ремонт або
+                                    <strong>заміну</strong> будь-яких
+                                    дефектних деталей, які виникли з вини виробника. Ми впевнені в якості нашої
+                                    продукції і прагнемо, щоб ви були спокійні за безпеку та комфорт вашої дитини.
+                                </p>
+                                <br/>
+                                <p>
+                                    <strong>Професійне обслуговування та підтримка клієнтів:</strong> <br>
+                                    Ми розуміємо, наскільки важливо мати надійного партнера, коли справа стосується
+                                    безпеки та комфорту вашої дитини. Наша команда професіоналів завжди готова надати
+                                    вам консультації та допомогу з будь-яких питань щодо вибору, експлуатації та
+                                    обслуговування дитячих колясок. Ви можете звертатися до нас за допомогою телефону,
+                                    електронної пошти або через форму зворотного зв'язку на нашому сайті. Ми прагнемо
+                                    зробити ваш досвід використання нашої продукції максимально приємним і безтурботним.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aks-accordion-row">
+                        <div
+                                class="aks-accordion-item"
+                                itemscope
+                                itemprop="mainEntity"
+                                itemtype="https://schema.org/Question"
+                                data-accordion-item=""
+                                data-ripple="#00000026"
+                        >
+                            <div class="aks-accordion-item-row">
+                                <div class="aks-accordion-item-icon">
+                                    <svg
+                                            class="aks-accordion-item-icon-open"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216 v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                    <svg
+                                            class="aks-accordion-item-icon-close"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="aks-accordion-item-title">
+                                    <h4 itemprop="name">
+                                        Безпека та надійність
+                                    </h4>
+                                </div>
+                            </div>
+                            <div
+                                    class="aks-accordion-item-content"
+                                    itemscope
+                                    itemprop="acceptedAnswer"
+                                    itemtype="https://schema.org/Answer"
+                                    data-accordion-content=""
+                            >
+                                <p itemprop="text">
+
+                                    Безпека вашої дитини є нашим пріоритетом номер один. Наші дитячі коляски виготовлені
+                                    з високоякісних матеріалів, які пройшли ретельну перевірку та відповідають найвищим
+                                    стандартам якості. Міцні алюмінієві або сталеві рами забезпечують стабільність та
+                                    надійність конструкції, в той час як безпечні системи кріплення та ремені
+                                    гарантують, що ваша дитина завжди буде надійно зафіксована.
+                                </p>
+                                <br/>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aks-accordion-row">
+                        <div
+                                class="aks-accordion-item"
+                                itemscope
+                                itemprop="mainEntity"
+                                itemtype="https://schema.org/Question"
+                                data-accordion-item=""
+                                data-ripple="#00000026"
+                        >
+                            <div class="aks-accordion-item-row">
+                                <div class="aks-accordion-item-icon">
+                                    <svg
+                                            class="aks-accordion-item-icon-open"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H276V20c0-11.046-8.954-20-20-20c-11.046,0-20,8.954-20,20v216H20c-11.046,0-20,8.954-20,20s8.954,20,20,20h216 v216c0,11.046,8.954,20,20,20s20-8.954,20-20V276h216c11.046,0,20-8.954,20-20C512,244.954,503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                    <svg
+                                            class="aks-accordion-item-icon-close"
+                                            viewBox="0 0 512 512"
+                                    >
+                                        <path
+                                                d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div class="aks-accordion-item-title">
+                                    <h4 itemprop="name">
+                                        Зручність для батьків
+                                    </h4>
+                                </div>
+                            </div>
+                            <div
+                                    class="aks-accordion-item-content"
+                                    itemscope
+                                    itemprop="acceptedAnswer"
+                                    itemtype="https://schema.org/Answer"
+                                    data-accordion-content=""
+                            >
+                                <p itemprop="text">
+                                    <strong>Легка вага та компактні розміри:</strong> <br>
+                                    Ми знаємо, що батькам важливо, щоб дитячі коляски були не лише безпечними для дітей,
+                                    але й зручними у використанні. Наші коляски відрізняються легкою вагою, що дозволяє
+                                    без зусиль переносити їх під час прогулянок або подорожей. Використання сучасних
+                                    матеріалів та технологій дозволило створити конструкції, які легко складати та
+                                    розкладати, роблячи їх ідеальними для транспортування.
+                                </p>
+                                <br/>
+                                <p>
+                                    <strong>Полегшене транспортування та зберігання:</strong> <br>
+                                    Компактні розміри наших колясок значно спрощують їх зберігання навіть у невеликих
+                                    приміщеннях. Завдяки продуманим механізмам складання, коляски легко поміщаються в
+                                    багажник автомобіля або в шафу. Вони також обладнані зручними ручками та ременями
+                                    для перенесення, що робить їх ще більш мобільними. Незалежно від того, чи ви їдете
+                                    на відпочинок, чи просто виходите на прогулянку, наші коляски створені для того, щоб
+                                    зробити ваше життя простішим і комфортнішим.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------- End FAQs Section --------- -->
+
+    <!-- --------- Testimonials --------- -->
+
+    <section class="testimonials-section">
+        <div class="wrapper-testimonials">
+            <h2 class="heading-primary-right">
+                Відгуки наших Клієнтів
+            </h2>
+            <div class="cols-testimonials">
+                <div
+                        class="col-testimonials"
+                        ontouchstart="this.classList.toggle('hover');"
+                >
+                    <div class="container-testimonials">
+                        <div
+                                class="front-testimonials"
+                                style="background-image: url({% static 'img/5.jpg' %})"
+                        >
+                            <div class="inner-testimonials">
+                                <p>Оксана і Тарас</p>
+                                <span>Donatan Comfort</span>
+                            </div>
+                        </div>
+                        <div class="back-testimonials">
+                            <div class="inner-testimonials">
+                                <p>
+                                    Lorem ipsum, dolor sit amet
+                                    consectetur adipisicing elit. Alias
+                                    cum repellat velit quae suscipit c.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                        class="col-testimonials"
+                        ontouchstart="this.classList.toggle('hover');"
+                >
+                    <div class="container-testimonials">
+                        <div
+                                class="front-testimonials"
+                                style="background-image: url({% static 'img/hero.jpg' %})"
+                        >
+                            <div class="inner-testimonials">
+                                <p>Андрій і Вікторія</p>
+                                <span>Donatan Lavanda</span>
+                            </div>
+                        </div>
+                        <div class="back-testimonials">
+                            <div class="inner-testimonials">
+                                <p>
+                                    Lorem ipsum, dolor sit amet
+                                    consectetur adipisicing elit. Alias
+                                    cum repellat velit quae suscipit c.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                        class="col-testimonials"
+                        ontouchstart="this.classList.toggle('hover');"
+                >
+                    <div class="container-testimonials">
+                        <div
+                                class="front-testimonials"
+                                style="
+                                        background-image: url({% static 'img/about-us-img-2.jpg' %});
+                                        "
+                        >
+                            <div class="inner-testimonials">
+                                <p>Маркіян і Катерина</p>
+                                <span>Donatan Monako</span>
+                            </div>
+                        </div>
+                        <div class="back-testimonials">
+                            <div class="inner-testimonials">
+                                <p>
+                                    Lorem ipsum, dolor sit amet
+                                    consectetur adipisicing elit. Alias
+                                    cum repellat velit quae suscipit c.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                        class="col-testimonials"
+                        ontouchstart="this.classList.toggle('hover');"
+                >
+                    <div class="container-testimonials">
+                        <div
+                                class="front-testimonials"
+                                style="
+                                        background-image: url({% static 'img/about-us-img-2.jpg' %});
+                                        "
+                        >
+                            <div class="inner-testimonials">
+                                <p>Остап і Марія</p>
+                                <span>Donatan Mini</span>
+                            </div>
+                        </div>
+                        <div class="back-testimonials">
+                            <div class="inner-testimonials">
+                                <p>
+                                    Lorem ipsum, dolor sit amet
+                                    consectetur adipisicing elit. Alias
+                                    cum repellat velit quae suscipit c.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#                <img#}
+        {#                    src="{% static '' %}img/heart.jpg"#}
+        {#                    class="half-section-image"#}
+        {#                    alt="Half Section Image"#}
+        {#                />#}
+    </section>
+
+    <!-- --------- End Testimonials --------- -->
+{% endblock %}

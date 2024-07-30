@@ -1,0 +1,43 @@
+{% load static %}
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <img
+                    src="{% static 'img/icons/logo/donatan-white-logo.svg' %}"
+                    alt="Logo"
+                    class="footer-logo"
+                    fill="currentColor"
+            />
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Доставка і оплата</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Відгуки</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+            <div>
+                <button class="contact-btn">Instagram</button>
+                <button class="contact-btn">Youtube</button>
+                <button class="contact-btn">Facebook</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <nav class="footer-bottom-nav">
+                <ul>
+                    <li><a href="#">Співпраця</a></li>
+                    <li><a href="#">Гарантія</a></li>
+                </ul>
+            </nav>
+            <p>
+                © Copyright 1998 - {% now 'Y' %} |
+                <a href="#">Політика конфіденційності</a> |
+                donatan.com.ua
+            </p>
+        </div>
+    </div>
+</footer>

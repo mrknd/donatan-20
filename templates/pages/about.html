@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- --------- Breadcrumb Section --------- -->
+
+    <section>
+        <div class="container breadcrumb">
+            <p>
+                <a href="{% url 'pages:index' %}">Головна</a> /
+                <a href="" style="color: #9DB2BF;">Про нас</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- --------- End Breadcrumb Section --------- -->
+
+    <!-- --------- About Us Section --------- -->
+    <section class="about-us-section container">
+        <div class="grid-container-about__gallery">
+            <div class="grid-item-about__gallery">
+                <img src="{% static 'img/test/1.jpg' %}" alt="dytyacha-kolyaska-donatan-about">
+                <div class="overlay"></div>
+                <div class="content-about__gallery">
+                    <h3>Donatan: Дитячі коляски, яким можна довіряти</h3>
+                </div>
+            </div>
+            <!-- Повторити для інших елементів -->
+        </div>
+        <div class="about-us">
+            <div class="grid grid--2-cols-reverse">
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-section-1.jpg' %}"
+                            alt="Про нас"
+                            class="border-img"
+                    />
+                </div>
+                <div class="text-about-us">
+                    <h2 class="heading-primary">
+                        Сертифіковані та перевірені матеріали
+                    </h2>
+                    <p
+                            class="about-us-description"
+                            style="padding-right: 5rem"
+                    >
+                        Покупка дитячої коляски – одна з першочергових
+                        справ у кожній родині, де очікують на появу
+                        малюка. Усі люблячі батьки прагнуть дати своїй
+                        дитині найкраще. Ми розділяємо ваше бажання та
+                        втілюємо його у своїй роботі.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid--2-cols">
+                <div class="text-about-us">
+                    <h2 class="heading-primary-right">
+                        Donatan - We Care
+                    </h2>
+                    <p
+                            class="about-us-description"
+                            style="padding-left: 5rem; text-align: end"
+                    >
+                        Компанія Donatan – український бренд, котрий
+                        спеціалізується на виготовленні колясок, а також
+                        інших товарів з цієї категорії, таких, як дитячі
+                        крісла та гойдалки. Наша компанія з’явилася на
+                        ринку ще у 2008 році. За час свого існування ми
+                        зуміли завоювати повагу та довіру споживачів,
+                        котрі оцінили високі експлуатаційні
+                        характеристики нашої продукції.
+                    </p>
+                </div>
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-section-2.jpg' %}"
+                            alt="Про нас"
+                            class="border-img"
+                    />
+                </div>
+            </div>
+
+            <div class="grid grid--2-cols-reverse">
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-section-3.jpg' %}"
+                            alt="Про нас"
+                            class="border-img display-pc"
+                    />
+                </div>
+                <div class="text-about-us">
+                    <h2 class="heading-primary">
+                        Сертифіковані та перевірені матеріали
+                    </h2>
+                    <p
+                            class="about-us-description"
+                            style="padding-right: 5rem"
+                    >
+                        Покупка дитячої коляски – одна з першочергових
+                        справ у кожній родині, де очікують на появу
+                        малюка. Усі люблячі батьки прагнуть дати своїй
+                        дитині найкраще. Ми розділяємо ваше бажання та
+                        втілюємо його у своїй роботі.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid--2-cols">
+                <div class="text-about-us">
+                    <h2 class="heading-primary-right">Donatan - We Care</h2>
+                    <p
+                            class="about-us-description"
+                            style="padding-left: 3rem; text-align: end;"
+                    >
+                        Компанія Donatan – український бренд, котрий
+                        спеціалізується на виготовленні колясок, а також
+                        інших товарів з цієї категорії, таких, як дитячі
+                        крісла та гойдалки. Наша компанія з’явилася на
+                        ринку ще у 2008 році. За час свого існування ми
+                        зуміли завоювати повагу та довіру споживачів,
+                        котрі оцінили високі експлуатаційні
+                        характеристики нашої продукції.
+                    </p>
+                </div>
+                <div class="about-us-img">
+                    <img
+                            src="{% static 'img/about-us-img.jpg' %}"
+                            alt="Про нас"
+                            class="border-img"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --------- End About Us Section --------- -->
+
+{% endblock %}

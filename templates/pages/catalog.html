@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    <section>
+        <div class="container breadcrumb">
+            <p>
+                <a href="{% url 'pages:index' %}">Головна</a> /
+                <a href="#" style="color: #9DB2BF;">Каталог</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="catalog-section" style="margin-top: 2rem">
+        <div>
+            <div class="catalog-container">
+                {% for stroller in strollers %}
+                <a href="{{ stroller.get_absolute_url }}">
+                    <div class="grid-item">
+                        <img
+                                src="{{ stroller.title_image.url }}"
+                                alt="Коляска Kidex K-Style 2 в 1 Caramel Handle Black"
+                        />
+                        <div>
+                            <h3 class="product-title">
+                                {{ stroller.title_name }}
+                            </h3>
+                        </div>
+
+                    </div>
+                </a>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}
