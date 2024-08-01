@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} {% endblock %}
+{% block title %}Donatan - виробництво та продаж дитячих колясок. Український виробник колясок та
+    аксесуарів{% endblock %}
+{% block meta %}Дитячі коляски. Donatan - провідний український бренд, що спеціалізується на виготовленні дитячих 
+    колясок, крісел та гойдалок. Висока якість та безпека для ваших малюків.{% endblock %}
 
 {% block content %}
+
     <!-- --------- Hero Section --------- -->
     <section class="hero-section">
         <div class="hero-container">
@@ -17,7 +21,7 @@
                 <div class="hero-social">
                     <div class="hero-line"></div>
                     <a
-                            href="https://www.instagram.com"
+                            href="https://www.instagram.com/donatan.ua?igsh=MTZqdGRicXp1MTZvbw=="
                             class="hero-social-icon"
                             target="_blank"
                     >
@@ -27,7 +31,7 @@
                         />
                     </a>
                     <a
-                            href="https://www.facebook.com"
+                            href="https://www.instagram.com/donatan.ua?igsh=MTZqdGRicXp1MTZvbw=="
                             class="hero-social-icon"
                             target="_blank"
                     >
@@ -37,7 +41,7 @@
                         />
                     </a>
                     <a
-                            href="https://www.youtube.com"
+                            href="https://www.youtube.com/@donatanlviv"
                             class="hero-social-icon"
                             target="_blank"
                     >
@@ -52,17 +56,15 @@
 
             <img
                     class="hero-image"
-                    src="{% static 'img/donatan-hero-img.jpg' %}"
+                    src="{% static 'img/index/donatan-hero-img.webp' %}"
                     alt="Виготовлення та продаж дитячих колясок"
             />
         </div>
     </section>
 
     <!-- --------- End Hero Section --------- -->
-    
 
     <!-- --------- About us Section --------- -->
-
     <section class="about-us-section">
         <div class="container about-us mt-5">
             <div class="grid grid--2-cols">
@@ -89,7 +91,7 @@
                 </div>
                 <div class="about-us-img">
                     <img
-                            src="{% static 'img/about-index-1.jpg' %}"
+                            src="{% static 'img/index/about-index-1.webp' %}"
                             alt="Про нас"
                             class="border-img"
                     />
@@ -99,7 +101,7 @@
             <div class="grid grid--2-cols-reverse">
                 <div class="about-us-img">
                     <img
-                            src="{% static 'img/about-index.jpg' %}"
+                            src="{% static 'img/index/about-index-3.webp' %}"
                             alt="Про нас"
                             class="border-img"
                     />
@@ -126,11 +128,9 @@
             </div>
         </div>
     </section>
-
     <!-- --------- End About us Section --------- -->
 
     <!-- --------- Parallax Section --------- -->
-
     <section class="parallax-section">
         <div class="parallax">
             <div class="parallax-content">
@@ -141,11 +141,9 @@
             </div>
         </div>
     </section>
-
     <!-- --------- End Parallax Section --------- -->
 
     <!-- --------- Catalog Section --------- -->
-
     <section class="catalog-section">
         <div class="container">
             <h2 class="heading-without-line">Найпопулярніші моделі</h2>
@@ -169,100 +167,6 @@
                 </a>
             {% endfor %}
         </div>
-        {#        <div class="container grid-catalog grid--3-cols">#}
-        {#            <div>#}
-        {#                <a href="detail.html">#}
-        {#                    <article class="card">#}
-        {#                        <img#}
-        {#                                class="card__background"#}
-        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
-        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
-        {#                                width="1920"#}
-        {#                                height="2193"#}
-        {#                        />#}
-        {#                        <div class="card__header">#}
-        {#                            <h2 class="card__title">Comfort</h2>#}
-        {#                        </div>#}
-        {#                        <div class="card__content | flow">#}
-        {#                            <div#}
-        {#                                    class="card__content--container | flow"#}
-        {#                            >#}
-        {#                                <p class="card__description">#}
-        {#                                    Donatan Comfort –#}
-        {#                                    багатофункціональна дитяча коляска.#}
-        {#                                    Ми розуміємо скільки клопотів#}
-        {#                                    (звісно приємних) з’являється в#}
-        {#                                    життя батьків з появою малечі. З#}
-        {#                                    Donatan Comfort комфортним буде усе.#}
-        {#                                </p>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </article>#}
-        {#                </a>#}
-        {#            </div>#}
-        {##}
-        {#            <div>#}
-        {#                <a href="detail.html">#}
-        {#                    <article class="card">#}
-        {#                        <img#}
-        {#                                class="card__background"#}
-        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
-        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
-        {#                                width="1920"#}
-        {#                                height="2193"#}
-        {#                        />#}
-        {#                        <div class="card__header">#}
-        {#                            <h2 class="card__title">Sonata</h2>#}
-        {#                        </div>#}
-        {#                        <div class="card__content | flow">#}
-        {#                            <div#}
-        {#                                    class="card__content--container | flow"#}
-        {#                            >#}
-        {#                                <p class="card__description">#}
-        {#                                    Donatan Comfort –#}
-        {#                                    багатофункціональна дитяча коляска.#}
-        {#                                    Ми розуміємо скільки клопотів#}
-        {#                                    (звісно приємних) з’являється в#}
-        {#                                    життя батьків з появою малечі. З#}
-        {#                                    Donatan Comfort комфортним буде усе.#}
-        {#                                </p>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </article>#}
-        {#                </a>#}
-        {#            </div>#}
-        {##}
-        {#            <div>#}
-        {#                <a href="detail.html">#}
-        {#                    <article class="card">#}
-        {#                        <img#}
-        {#                                class="card__background"#}
-        {#                                src="{% static 'img/gallery-1.jpg' %}"#}
-        {#                                alt="Photo of Cartagena's cathedral at the background and some colonial style houses"#}
-        {#                                width="1920"#}
-        {#                                height="2193"#}
-        {#                        />#}
-        {#                        <div class="card__header">#}
-        {#                            <h2 class="card__title">Sonata</h2>#}
-        {#                        </div>#}
-        {#                        <div class="card__content | flow">#}
-        {#                            <div#}
-        {#                                    class="card__content--container | flow"#}
-        {#                            >#}
-        {#                                <p class="card__description">#}
-        {#                                    Donatan Comfort –#}
-        {#                                    багатофункціональна дитяча коляска.#}
-        {#                                    Ми розуміємо скільки клопотів#}
-        {#                                    (звісно приємних) з’являється в#}
-        {#                                    життя батьків з появою малечі. З#}
-        {#                                    Donatan Comfort комфортним буде усе.#}
-        {#                                </p>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </article>#}
-        {#                </a>#}
-        {#            </div>#}
-        {#        </div>#}
         <div
                 style="
                         display: flex;
@@ -273,7 +177,6 @@
             <a class="gallery-button" href="{% url 'catalog:catalog' %}">Більше колясок</a>
         </div>
     </section>
-
     <!-- --------- End Catalog Section --------- -->
 
     <!-- --------- FAQs Section --------- -->
@@ -411,7 +314,6 @@
 
                                 </p>
                                 <br/>
-
                             </div>
                         </div>
                     </div>
@@ -598,130 +500,5 @@
             </div>
         </div>
     </section>
-
     <!-- --------- End FAQs Section --------- -->
-
-    <!-- --------- Testimonials --------- -->
-
-    <section class="testimonials-section">
-        <div class="wrapper-testimonials">
-            <h2 class="heading-primary-right">
-                Відгуки наших Клієнтів
-            </h2>
-            <div class="cols-testimonials">
-                <div
-                        class="col-testimonials"
-                        ontouchstart="this.classList.toggle('hover');"
-                >
-                    <div class="container-testimonials">
-                        <div
-                                class="front-testimonials"
-                                style="background-image: url({% static 'img/5.jpg' %})"
-                        >
-                            <div class="inner-testimonials">
-                                <p>Оксана і Тарас</p>
-                                <span>Donatan Comfort</span>
-                            </div>
-                        </div>
-                        <div class="back-testimonials">
-                            <div class="inner-testimonials">
-                                <p>
-                                    Lorem ipsum, dolor sit amet
-                                    consectetur adipisicing elit. Alias
-                                    cum repellat velit quae suscipit c.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                        class="col-testimonials"
-                        ontouchstart="this.classList.toggle('hover');"
-                >
-                    <div class="container-testimonials">
-                        <div
-                                class="front-testimonials"
-                                style="background-image: url({% static 'img/hero.jpg' %})"
-                        >
-                            <div class="inner-testimonials">
-                                <p>Андрій і Вікторія</p>
-                                <span>Donatan Lavanda</span>
-                            </div>
-                        </div>
-                        <div class="back-testimonials">
-                            <div class="inner-testimonials">
-                                <p>
-                                    Lorem ipsum, dolor sit amet
-                                    consectetur adipisicing elit. Alias
-                                    cum repellat velit quae suscipit c.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                        class="col-testimonials"
-                        ontouchstart="this.classList.toggle('hover');"
-                >
-                    <div class="container-testimonials">
-                        <div
-                                class="front-testimonials"
-                                style="
-                                        background-image: url({% static 'img/about-us-img-2.jpg' %});
-                                        "
-                        >
-                            <div class="inner-testimonials">
-                                <p>Маркіян і Катерина</p>
-                                <span>Donatan Monako</span>
-                            </div>
-                        </div>
-                        <div class="back-testimonials">
-                            <div class="inner-testimonials">
-                                <p>
-                                    Lorem ipsum, dolor sit amet
-                                    consectetur adipisicing elit. Alias
-                                    cum repellat velit quae suscipit c.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                        class="col-testimonials"
-                        ontouchstart="this.classList.toggle('hover');"
-                >
-                    <div class="container-testimonials">
-                        <div
-                                class="front-testimonials"
-                                style="
-                                        background-image: url({% static 'img/about-us-img-2.jpg' %});
-                                        "
-                        >
-                            <div class="inner-testimonials">
-                                <p>Остап і Марія</p>
-                                <span>Donatan Mini</span>
-                            </div>
-                        </div>
-                        <div class="back-testimonials">
-                            <div class="inner-testimonials">
-                                <p>
-                                    Lorem ipsum, dolor sit amet
-                                    consectetur adipisicing elit. Alias
-                                    cum repellat velit quae suscipit c.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {#                <img#}
-        {#                    src="{% static '' %}img/heart.jpg"#}
-        {#                    class="half-section-image"#}
-        {#                    alt="Half Section Image"#}
-        {#                />#}
-    </section>
-
-    <!-- --------- End Testimonials --------- -->
 {% endblock %}
