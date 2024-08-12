@@ -49,6 +49,39 @@ class Stroller(models.Model):
     width_frame = models.DecimalField(max_digits=5, decimal_places=2, default=0, verbose_name="Ширина рами")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата редагування")
+    sized_stroller = models.ImageField(upload_to='stroller_photo', blank=True, null=True,
+                                       verbose_name="Фото коляски з розмірами")
+
+    header_first = models.CharField(max_length=150, blank=True, null=True, verbose_name='Перший заголовок опису')
+    description_first = RichTextField(verbose_name="Перший опис", blank=True, null=True)
+    photo_first = models.ImageField(upload_to='stroller_photo', blank=True, null=True, verbose_name="Перше фото опису")
+    header_second = models.CharField(max_length=150, blank=True, null=True, verbose_name='Другий заголовок опису')
+    description_second = RichTextField(verbose_name="Другий опис", blank=True, null=True)
+    photo_second = models.ImageField(upload_to='stroller_photo', blank=True, null=True, verbose_name="Друге фото опису")
+    header_third = models.CharField(max_length=150, blank=True, null=True, verbose_name='Третій заголовок опису')
+    description_third = RichTextField(verbose_name="Третій опис", blank=True, null=True)
+    photo_third = models.ImageField(upload_to='stroller_photo', blank=True, null=True, verbose_name="Третє фото опису")
+    header_fourth = models.CharField(max_length=150, blank=True, null=True, verbose_name='Четвертий заголовок опису')
+    description_fourth = RichTextField(verbose_name="Четвертий опис", blank=True, null=True)
+    photo_fourth = models.ImageField(upload_to='stroller_photo', blank=True, null=True,
+                                     verbose_name="Четверте фото опису")
+
+    gallery_photo_1 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_2 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_3 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_4 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_5 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_6 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_7 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
+    gallery_photo_8 = models.ImageField(upload_to='gallety_photo', blank=True, null=True,
+                                        verbose_name="Фото для галереї")
 
     class Meta:
         verbose_name = 'Коляски'

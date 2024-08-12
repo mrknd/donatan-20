@@ -2,6 +2,15 @@
 
 {% load static %}
 
+{% block title %}Контакти - Donatan{% endblock %}
+{% block meta %}Компанія Donatan завжди готова до співпраці з оптовиками, дистрибюторами, магазинами{% endblock %}
+
+{% block og_title %}Контакти - Donatan{% endblock %}
+{% block og_description %}Співпраця з дистрибюторами, магазинами, інтернет-магазинами{% endblock %}
+
+{% block og_image %}{{ request.build_absolute_uri }}{% static 'img/icons/logo/donatan-black-logo.svg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
 {% block content %}
     <main>
         <section>

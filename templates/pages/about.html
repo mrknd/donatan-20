@@ -2,6 +2,15 @@
 
 {% load static %}
 
+{% block title %}Про нас{% endblock %}
+{% block meta %}{% endblock %}}
+
+{% block og_title %}Про нас{% endblock %}
+{% block og_description %}{% endblock %}
+
+{% block og_image %}{{ request.build_absolute_uri }}{% static 'img/icons/logo/donatan-black-logo.svg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
 {% block content %}
 
     <!-- --------- Breadcrumb Section --------- -->
@@ -19,16 +28,7 @@
 
     <!-- --------- About Us Section --------- -->
     <section class="about-us-section container">
-        <div class="grid-container-about__gallery">
-            <div class="grid-item-about__gallery">
-                <img src="{% static 'img/about/about_donatan-1-1.webp' %}" alt="dytyacha-kolyaska-donatan-about">
-                <div class="overlay"></div>
-                <div class="content-about__gallery">
-                    <h3>Donatan: дитячі коляски, яким можна довіряти</h3>
-                </div>
-            </div>
-            <!-- Повторити для інших елементів -->
-        </div>
+        
         <div class="about-us">
             <div class="grid grid--2-cols-reverse">
                 <div class="about-us-img">
@@ -55,12 +55,11 @@
             </div>
             <div class="grid grid--2-cols">
                 <div class="text-about-us">
-                    <h2 class="heading-primary-right">
+                    <h2 class="heading-primary">
                         Висока Якість та Безпека з Дитячими Колясками Donatan
                     </h2>
                     <p
                             class="about-us-description"
-                            style="padding-left: 5rem; text-align: end"
                     >
                         Покупка дитячої коляски – одна з першочергових справ у кожній родині, де очікують на появу
                         малюка. Усі люблячі батьки прагнуть дати своїй дитині найкраще. Ми розділяємо ваше бажання та
@@ -111,14 +110,13 @@
             </div>
             <div class="grid grid--2-cols">
                 <div class="text-about-us">
-                    <h2 class="heading-primary-right">Donatan - Made with Love</h2>
+                    <h2 class="heading-primary">Donatan - Made with Love</h2>
                     <p
                             class="about-us-description"
-                            style="padding-left: 3rem; text-align: end;"
                     >
                         Окрім всього зазначеного, ми не забуваємо про стильний вигляд нашої продукції. Дитяча коляска –
-                        перший «транспорт» малюка, яким, здебільшого, доводиться керувати мамі. <br> <br>
-                        Серед усього нашого асортименту Ви зможете обрати варіант, що стане втіленням Ваших відчуттів материнства.
+                        перший «транспорт» малюка, яким, здебільшого, доводиться керувати мамі. Серед усього нашого
+                        асортименту вона зможе обрати варіант, що стане втіленням її відчуттів материнства.
                         Дитяча коляска Donatan забезпечить Вам впевненість у безпеці та надійності, подарує комфорт
                         користування, а також естетичне задоволення.
                     </p>
@@ -135,5 +133,9 @@
     </section>
 
     <!-- --------- End About Us Section --------- -->
+
+{% endblock %}
+
+{% block script %}
 
 {% endblock %}

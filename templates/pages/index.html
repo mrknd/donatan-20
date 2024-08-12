@@ -3,8 +3,38 @@
 
 {% block title %}Donatan - виробництво та продаж дитячих колясок. Український виробник колясок та
     аксесуарів{% endblock %}
-{% block meta %}Дитячі коляски. Donatan - провідний український бренд, що спеціалізується на виготовленні дитячих 
-    колясок, крісел та гойдалок. Висока якість та безпека для ваших малюків.{% endblock %}
+{% block meta %}Дитячі коляски. Donatan - провідний український бренд, що спеціалізується на виготовленні дитячих колясок, крісел та гойдалок. Висока якість та безпека для ваших малюків.{% endblock %}
+
+{% block og_title %}Дитячі багатофункціональні коляски 2в1 Donatan від українського виробника{% endblock %}
+
+{% block og_description %}Купити дитячу багатофункціональну універсальну коляску 2в1 Donatan від українського виробника. Ідеальний варіант для хлопчика чи дівчинки. Висока якість, зручність та сучасний дизайн.
+{% endblock %}
+
+{% block og_image %}{% static 'img/icons/logo/donatan-black-logo.svg' %}{% endblock %}
+
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Donatan - виробництво та продаж дитячих колясок. Український виробник колясок та аксесуарів",
+  "image": "{% static 'img/icons/logo/donatan-black-logo.svg' %}",
+  "description": "Купити дитячу багатофункціональну універсальну коляску 2в1 Donatan від українського виробника. Ідеальний варіант для хлопчика чи дівчинки. Висока якість, зручність та сучасний дизайн.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Donatan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
@@ -31,7 +61,7 @@
                         />
                     </a>
                     <a
-                            href="https://www.instagram.com/donatan.ua?igsh=MTZqdGRicXp1MTZvbw=="
+                            href="https://www.facebook.com/donatan.com.ua/"
                             class="hero-social-icon"
                             target="_blank"
                     >
@@ -75,7 +105,7 @@
                             style="padding-right: 4rem"
                     >
                         Компанія Donatan – український бренд, котрий
-                        спеціалізується на виготовленні колясок, а також
+                        спеціалізується на виготовленні дитячих колясок, а також
                         інших товарів з цієї категорії, таких, як дитячі
                         крісла та гойдалки. Наша компанія з’явилася на
                         ринку ще у 2008 році. За час свого існування ми
@@ -89,23 +119,23 @@
                         >
                     </div>
                 </div>
-                <div class="about-us-img">
+                <picture class="about-us-img">
                     <img
                             src="{% static 'img/index/about-index-1.webp' %}"
-                            alt="Про нас"
+                            alt="Виготовлення та продаж дитячих колясок"
                             class="border-img"
                     />
-                </div>
+                </picture>
             </div>
 
             <div class="grid grid--2-cols-reverse">
-                <div class="about-us-img">
+                <picture class="about-us-img">
                     <img
                             src="{% static 'img/index/about-index-3.webp' %}"
-                            alt="Про нас"
+                            alt="Виготовлення та продаж дитячих колясок"
                             class="border-img"
                     />
-                </div>
+                </picture>
                 <div class="text-about-us">
                     <h2 class="heading-primary-right">
                         Високоякісні та сертифіковані матеріали
@@ -141,12 +171,25 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function disableParallaxOnMobile() {
+            if (window.innerWidth <= 768) {
+                var parallaxElements = document.querySelectorAll('.parallax');
+                parallaxElements.forEach(function (element) {
+                    element.style.backgroundAttachment = 'scroll';
+                });
+            }
+        }
+        window.addEventListener('load', disableParallaxOnMobile);
+        window.addEventListener('resize', disableParallaxOnMobile);
+    </script>
     <!-- --------- End Parallax Section --------- -->
 
     <!-- --------- Catalog Section --------- -->
     <section class="catalog-section">
         <div class="container">
-            <h2 class="heading-without-line">Найпопулярніші моделі</h2>
+            <h2 class="heading-primary-left">Найпопулярніші моделі</h2>
             <div class="model-container">
                 <p class="model-description">Кожна з наших моделей була розроблена, щоб ідеально відповідати абсолютно
                     різним потребам батьків і
@@ -158,7 +201,8 @@
             {% for stroller in featured_strollers %}
                 <a href="{{ stroller.get_absolute_url }}">
                     <div class="grid-item__gallery">
-                        <img src="{{ stroller.featured_photo.url }}" alt="Anex IQ">
+                        <img src="{{ stroller.featured_photo.url }}" 
+                        alt="Багатофункціональна дитяча коляска 2в1 {{stroller.model_name}}">
                         <div class="content__gallery">
                             <h3>{{ stroller.model_name }}</h3>
                             <p>{{ stroller.featured_description }}</p>
@@ -232,7 +276,7 @@
                                     data-accordion-content=""
                             >
                                 <p itemprop="text">
-                                    <strong>DONaTan</strong> — це гордість українського виробництва. Ми спеціалізуємося
+                                    <strong>DONaTan</strong> — український бренд. Ми спеціалізуємося
                                     на виготовленні
                                     дитячих колясок з 2008 року, і за цей час зарекомендували себе як надійний та
                                     якісний виробник. Всі наші коляски створюються в Україні, де ми ретельно контролюємо

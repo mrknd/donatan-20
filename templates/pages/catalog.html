@@ -2,6 +2,66 @@
 
 {% load static %}
 
+{% block title %}Каталог - Donatan. Купити універсальну багатофункціональну коляску 2 в 1 від українського виробника{% endblock %}
+{% block meta %}Купити дитячу коляску 2 в 1 Donatan за найкращою ціною від виробника. Ідеально підходить для хлопчика чи дівчинки. Український бренд, висока якість та зручність.{% endblock %}}
+
+{% block og_title %}Каталог - Donatan. Дитячі багатофункціональні коляски 2в1 Donatan від українського виробника{% endblock %}
+{% block og_description %}Вибирайте дитячі багатофункціональні універсальні коляски 2в1 від Donatan - українського виробника з бездоганною репутацією. Наші коляски забезпечують максимальний комфорт і безпеку для вашої дитини, поєднуючи сучасний дизайн та високу якість матеріалів. Ідеальний вибір для хлопчика чи дівчинки!{% endblock %}
+
+{% block og_image %}{{ request.build_absolute_uri }}{% static 'img/icons/logo/donatan-black-logo.svg' %}{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Каталог - Donatan. Donatan - виробництво та продаж дитячих колясок. Український виробник дитячих колясок та аксесуарів",
+  "image": "{{ request.build_absolute_uri }}{% static 'img/icons/logo/donatan-black-logo.svg' %}",
+  "description": "Вибирайте дитячі багатофункціональні універсальні коляски 2в1 від Donatan - українського виробника. Наші коляски забезпечують максимальний комфорт і безпеку для вашої дитини, поєднуючи сучасний дизайн та високу якість матеріалів. Ідеальний вибір для хлопчика чи дівчинки!",
+  "brand": {
+    "@type": "Brand",
+    "name": "Donatan"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+{% endblock %}
+
+
+{% block style %}
+.grid-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.grid-item.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.grid-item, .product-container {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.grid-item.slide-in, .product-container.slide-in {
+opacity: 1;
+transform: translateY(0);
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    color: #9DB2BF;
+}
+{% endblock %}
 
 {% block content %}
     <section>
@@ -21,11 +81,11 @@
                     <div class="grid-item">
                         <img
                                 src="{{ stroller.title_image.url }}"
-                                alt="Коляска Kidex K-Style 2 в 1 Caramel Handle Black"
+                                alt="Дитяча коляска 2в1 {{stroller.model_name}}"
                         />
                         <div>
                             <h3 class="product-title">
-                                {{ stroller.title_name }}
+                                {{ stroller.model_name }}
                             </h3>
                         </div>
 
@@ -36,4 +96,24 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block script %}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.grid-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
 {% endblock %}

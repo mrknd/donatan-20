@@ -20,5 +20,3 @@ def stroller_detail(request, stroller_slug=None):
         'single_stroller': single_stroller,
     }
     return render(request=request, template_name='pages/stroller_detail.html', context=context)
-
-

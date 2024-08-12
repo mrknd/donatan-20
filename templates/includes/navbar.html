@@ -2,7 +2,7 @@
 
 <header class="header">
     <a href="{% url 'pages:index' %}"
-    ><img src="{% static 'img/icons/logo/donatan-black-logo.svg' %}" alt="Donatan logo" class="logo"
+    ><img src="{% static 'img/icons/logo/DONATAN_BLACK_LOGO.svg' %}" alt="Donatan logo" class="logo"
     /></a>
     <nav class="main-nav">
         <ul class="main-nav-list">
@@ -23,8 +23,9 @@
                 >
             </li>
             <li>
-                <a class="main-nav-link nav-cta" href="https://www.instagram.com/donatan.ua?igsh=MTZqdGRicXp1MTZvbw=="
-                   target="_blank">Instagram</a>
+                <a class="main-nav-link" href="{% url 'pages:contacts' %}"
+                >Ресурси</a
+                >
             </li>
         </ul>
     </nav>
