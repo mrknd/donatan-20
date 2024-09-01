@@ -16,9 +16,9 @@ services:
     volumes:
       - ./.data/postgresql:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: donatan-db-name
-      POSTGRES_USER: donatan-db-user
-      POSTGRES_PASSWORD: UnYqteBDbuvj
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   nginx:
     image: nginx:1.24.0-alpine
