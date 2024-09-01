@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['www.donatan.com.ua', 'donatan.com.ua', 'localhost']
+ALLOWED_HOSTS = ['www.donatan.com.ua', 'donatan.com.ua', 'localhost','127.0.0.1']
 
 # Application definition
 
@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'Donatan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'donatan2',
-        'USER': 'postgres',
-        'PASSWORD': '148898',
-        'HOST': 'localhost',
+        'NAME': 'donatan-db-name',
+        'USER': 'donatan-db-user',
+        'PASSWORD': 'UnYqteBDbuvj',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
